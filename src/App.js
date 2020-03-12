@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import DataLoader from './DataLoader'
 
-function App() {
+export default function Button () {
+  const [buttonText, setButtonText] = useState("Click me now!");
+
+  function handleClick() {
+    return setButtonText("Thanks, about time!");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div>
+  <button onClick={handleClick}>{buttonText}</button>
+  <DataLoader/>
+  </div>
+  )
 }
-
-export default App;
