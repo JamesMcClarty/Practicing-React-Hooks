@@ -1,15 +1,9 @@
 import React, {useState, useEffect} from "react";
+import useFetch from "./useFetch";
 
-export default function DataLoader(){
-    const [data, setData] = useState([]);
+export default function DataLoader(props){
 
-    useEffect(() => {
-        fetch('http://jsonplaceholder.typicode.com/users')
-          .then(response => response.json())
-          .then(data => setData(data));
-      }, []);
-
-    console.table(data);
+    const data = useFetch("http://jsonplaceholder.typicode.com/users")
 
     return(
         <div>
